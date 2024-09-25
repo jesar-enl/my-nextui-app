@@ -9,6 +9,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { adventSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -43,25 +44,15 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="flex justify-between">
+          <div className="relative flex justify-between">
             <div className="flex flex-col h-screen w-[88.7%]">
               <Navbar />
-              <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+              <main className="container mx-auto max-w-7xl flex-grow">
                 {children}
               </main>
-              <footer className="w-full flex items-center justify-center py-3">
-                <Link
-                  isExternal
-                  className="flex items-center gap-1 text-current"
-                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                  title="nextui.org homepage"
-                >
-                  <span className="text-default-600">Powered by</span>
-                  <p className="text-primary">NextUI</p>
-                </Link>
-              </footer>
+              <Footer />
             </div>
-            <div className="bg-ming w-[11.3%] h-screen top-0 text-white">
+            <div className="fixed bg-ming w-[11.3%] h-screen top-0 right-0 text-white">
               <Image
                 alt="logo"
                 className="top-0 right-0"
